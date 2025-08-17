@@ -38,7 +38,7 @@ A modern, responsive single-page website for **Deepak Service Center**, showcasi
 - **Email**: naveenjkkm9066@gmail.com  
 - **GitHub**: (https://github.com/naveen9066/E-Commerce site)  
 - **LinkedIn**: (https://www.linkedin.com/in/naveensakthivel)  
-- **Live Website**: https://pixhub.neocities.org/DeepakServiceCenter/E-commerce  
+- **Live Website**: https://pixhub.neocities.org/DeepakServiceCenter/  
 
 ---
 
