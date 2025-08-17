@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DP Mobile & Laptop Service - Laptop & Mobile Repairs | Genuine Accessories</title>
+    <meta name="description" content="Professional laptop and mobile repair services with genuine accessories. Same-day diagnosis, warranty on repairs, and certified technicians in Arasur.">
+    <meta name="keywords" content="laptop repair, mobile repair, phone repair, computer repair, accessories, screen replacement, battery replacement">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="DP Mobile & Laptop Service - Laptop & Mobile Repairs">
+    <meta property="og:description" content="Professional repair services with genuine parts and warranty">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://deepakservicecenter.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "DP Mobile & Laptop Service",
+        "description": "Professional laptop and mobile repair services with genuine accessories",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "No: 2/172, Shivam Shopping Arasur, Nambiyur Main Road",
+            "addressLocality": "Arasur",
+            "postalCode": "638454",
+            "addressCountry": "IN"
+        },
+        "telephone": "+91 8754881677",
+        "email": "dpmobilapservice03022025@gmail.com",
+        "openingHours": "Mo-Su 09:30-21:00",
+        "priceRange": "₹₹",
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "13.0827",
+            "longitude": "80.2707"
+        }
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0ea5e9;
+            --secondary: #22c55e;
+            --dark: #0f172a;
+            --bg: #0b1220;
+            --text: #ffffff;
+            --text-muted: #94a3b8;
+            --border: #1e293b;
+            --card-bg: #1e293b;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Announcement Strip */
+        .announcement {
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 14px;
+            font-weight: 500;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(11, 18, 32, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 1px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bg) 0%, #1e293b 100%);
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(34, 197, 94, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128c7e;
+            transform: translateY(-2px);
+        }
+
+        .usps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .usp-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .usp-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .usp-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .service-description {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .service-price {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Products Grid */
+        .products-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #1e293b, #334155);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--text-muted);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .product-spec {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Brands Section */
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .brand-logo {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .brand-logo:hover {
+            transform: translateY(-5px);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--primary);
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .author-info h4 {
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .stars {
+            color: #fbbf24;
+        }
+
+        /* Contact Form */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            space-y: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Map */
+        .map-container {
+            margin-top: 3rem;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 300px;
+            background: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(14, 165, 233, 0.1);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            padding: 3rem 0 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--card-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.8); }
+            100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+        }
+
+        /* Success Message */
+        .success-message {
+            background: var(--secondary);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            display: none;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg);
+                flex-direction: column;
+                padding: 2rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                border-top: 1px solid var(--border);
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .hero {
+                padding: 4rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .usps {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .brands-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .brands-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        .hidden { display: none; }
+        .visible { display: block; }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Strip -->
+    <div class="announcement">
+        🎉 Festival Special: 20% OFF on all repairs | Free pickup & drop for bulk orders | Student discounts available!
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                🔧 DP Mobile & Laptop Service
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#products" class="nav-link">Products</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>DP Mobile & Laptop Service</h1>
+                <p class="tagline">Laptop • Mobile Repairs | Genuine Accessories</p>
+                
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">📋 Book a Repair</a>
+                    <a href="tel:+918754881677" class="btn btn-outline">📞 Call Now</a>
+                    <a href="https://wa.me/918754881677?text=Hi! DP Service Center I need help with my device repair" class="btn btn-whatsapp">💬 WhatsApp</a>
+                </div>
+
+                <div class="usps">
+                    <div class="usp-card">
+                        <span class="usp-icon">⚡</span>
+                        <h3>Same-Day Diagnosis</h3>
+                        <p>Quick assessment of your device issues within hours</p>
+                    </div>
+                    <div class="usp-card">
+                        <span class="usp-icon">✅</span>
+                        <h3>Genuine Parts</h3>
+                        <p>Only authentic components for lasting repairs</p>
+                    </div>
+                    <div class="usp-card">
+                        <span class="usp-icon">🛡️</span>
+                        <h3>90-Day Warranty</h3>
+                        <p>Comprehensive warranty on all repair services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Repair Services</h2>
+            <p class="section-subtitle">Professional repair services with certified technicians and genuine parts</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3 class="service-title">Laptop Repair</h3>
+                    <p class="service-description">Complete laptop repair including motherboard, screen, keyboard, and hardware issues. Expert diagnosis and chip-level repairs.</p>
+                    <div class="service-price">Starting from ₹500</div>
+                    <a href="https://wa.me/918754881677?text=I need laptop repair service" class="btn btn-primary">Book Now</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3 class="service-title">Mobile Repair</h3>
+                    <p class="service-description">Smartphone repair for all brands including screen replacement, battery issues, charging problems, and software fixes.</p>
+                    <div class="service-price">Starting from ₹300</div>
+                    <a href="https://wa.me/918754881677?text=I need mobile repair service" class="btn btn-primary">Book Now</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔋</div>
+                    <h3 class="service-title">Battery Replacement</h3>
+                    <p class="service-description">Original battery replacement for laptops and mobiles with warranty. Quick turnaround time of 2-4 hours.</p>
+                    <div class="service-price">Starting from ₹800</div>
+                    <a href="https://wa.me/918754881677?text=I need battery replacement" class="btn btn-primary">Book Now</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🖥️</div>
+                    <h3 class="service-title">Screen Replacement</h3>
+                    <p class="service-description">High-quality LCD/LED screen replacement for laptops and mobile devices. Original and compatible options available.</p>
+                    <div class="service-price">Starting from ₹1,200</div>
+                    <a href="https://wa.me/918754881677?text=I need screen replacement" class="btn btn-primary">Book Now</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💾</div>
+                    <h3 class="service-title">Data Recovery</h3>
+                    <p class="service-description">Professional data recovery from damaged hard drives, SSDs, and mobile storage. Secure and confidential process.</p>
+                    <div class="service-price">Starting from ₹1,500</div>
+                    <a href="https://wa.me/918754881677?text=I need data recovery service" class="btn btn-primary">Book Now</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3 class="service-title">Software Installation</h3>
+                    <p class="service-description">OS installation, software setup, virus removal, and system optimization. Complete software solutions.</p>
+                    <div class="service-price">Starting from ₹400</div>
+                    <a href="https://wa.me/918754881677?text=I need software installation" class="btn btn-primary">Book Now</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3 class="service-title">Chip-Level Repair</h3>
+                    <p class="service-description">Advanced motherboard and IC-level repairs for complex hardware issues. Specialized equipment and expertise.</p>
+                    <div class="service-price">Starting from ₹2,000</div>
+                    <a href="https://wa.me/918754881677?text=I need chip-level repair" class="btn btn-primary">Book Now</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💧</div>
+                    <h3 class="service-title">Water Damage Repair</h3>
+                    <p class="service-description">Emergency water damage repair with specialized cleaning and component replacement. Quick response required.</p>
+                    <div class="service-price">Starting from ₹1,000</div>
+                    <a href="https://wa.me/918754881677?text=I have water damage emergency" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section">
+        <div class="container">
+            <h2 class="section-title">Genuine Accessories</h2>
+            <p class="section-subtitle">High-quality accessories and components for all your devices</p>
+            
+            <div class="products-filter">
+                <button class="filter-btn active" data-category="all">All Products</button>
+                <button class="filter-btn" data-category="chargers">Chargers</button>
+                <button class="filter-btn" data-category="cables">Cables</button>
+                <button class="filter-btn" data-category="audio">Audio</button>
+                <button class="filter-btn" data-category="storage">Storage</button>
+                <button class="filter-btn" data-category="accessories">Accessories</button>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card" data-category="chargers">
+                    <div class="product-image">🔌</div>
+                    <div class="product-info">
+                        <h3 class="product-title">Universal Laptop Charger</h3>
+                        <p class="product-spec">65W, Multiple Tips, Compatible with HP/Dell/Lenovo</p>
+                        <div class="product-price">₹1,299</div>
+                        <a href="https://wa.me/918754881677?text=I want to buy Universal Laptop Charger - ₹1,299" class="btn btn-primary">Enquire on WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="chargers">
+                    <div class="product-image">⚡</div>
+                    <div class="product-info">
+                        <h3 class="product-title">Fast Mobile Charger</h3>
+                        <p class="product-spec">25W Super Fast Charging, USB-C, Samsung Compatible</p>
+                        <div class="product-price">₹899</div>
+                        <a href="https://wa.me/918754881677?text=I want to buy Fast Mobile Charger - ₹899" class="btn btn-primary">Enquire on WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="cables">
+                    <div class="product-image">🔗</div>
+                    <div class="product-info">
+                        <h3 class="product-title">USB-C to Lightning Cable</h3>
+                        <p class="product-spec">1.5m, MFi Certified, Fast Charging & Data Sync</p>
+                        <div class="product-price">₹599</div>
+                        <a href="https://wa.me/918754881677?text=I want to buy USB-C to Lightning Cable - ₹599" class="btn btn-primary">Enquire on WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="audio">
+                    <div class="product-image">🎧</div>
+                    <div class="product-info">
+                        <h3 class="product-title">Wireless Earbuds</h3>
+                        <p class="product-spec">Bluetooth 5.0, 24hr Battery, Noise Cancellation</p>
+                        <div class="product-price">₹2,499</div>
+                        <a href="https://wa.me/918754881677?text=I want to buy Wireless Earbuds - ₹2,499" class="btn btn-primary">Enquire on WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="accessories">
+                    <div class="product-image">🔋</div>
+                    <div class="product-info">
+                        <h3 class="product-title">Power Bank 20000mAh</h3>
+                        <p class="product-spec">Fast Charging, Dual USB, LED Display, Premium Build</p>
+                        <div class="product-price">₹1,799</div>
+                        <a href="https://wa.me/918754881677?text=I want to buy Power Bank 20000mAh - ₹1,799" class="btn btn-primary">Enquire on WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="accessories">
+                    <div class="product-image">⌨️</div>
+                    <div class="product-info">
+                        <h3 class="product-title">Wireless Keyboard & Mouse</h3>
+                        <p class="product-spec">2.4GHz, Ergonomic Design, Long Battery Life</p>
+                        <div class="product-price">₹1,299</div>
+                        <a href="https://wa.me/918754881677?text=I want to buy Wireless Keyboard & Mouse - ₹1,299" class="btn btn-primary">Enquire on WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="accessories">
+                    <div class="product-image">📱</div>
+                    <div class="product-info">
+                        <h3 class="product-title">Premium Phone Case</h3>
+                        <p class="product-spec">Shockproof, Clear Design, All Models Available</p>
+                        <div class="product-price">₹399</div>
+                        <a href="https://wa.me/918754881677?text=I want to buy Premium Phone Case - ₹399" class="btn btn-primary">Enquire on WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="accessories">
+                    <div class="product-image">🛡️</div>
+                    <div class="product-info">
+                        <h3 class="product-title">Tempered Glass Screen Guard</h3>
+                        <p class="product-spec">9H Hardness, Anti-Fingerprint, Bubble-Free</p>
+                        <div class="product-price">₹199</div>
+                        <a href="https://wa.me/918754881677?text=I want to buy Tempered Glass Screen Guard - ₹199" class="btn btn-primary">Enquire on WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="storage">
+                    <div class="product-image">💽</div>
+                    <div class="product-info">
+                        <h3 class="product-title">SSD 256GB</h3>
+                        <p class="product-spec">SATA III, High Speed, 3-Year Warranty</p>
+                        <div class="product-price">₹2,899</div>
+                        <a href="https://wa.me/918754881677?text=I want to buy SSD 256GB - ₹2,899" class="btn btn-primary">Enquire on WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="storage">
+                    <div class="product-image">🧠</div>
+                    <div class="product-info">
+                        <h3 class="product-title">RAM 8GB DDR4</h3>
+                        <p class="product-spec">2666MHz, Laptop Compatible, Branded Memory</p>
+                        <div class="product-price">₹2,199</div>
+                        <a href="https://wa.me/918754881677?text=I want to buy RAM 8GB DDR4 - ₹2,199" class="btn btn-primary">Enquire on WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="storage">
+                    <div class="product-image">💾</div>
+                    <div class="product-info">
+                        <h3 class="product-title">External Hard Drive 1TB</h3>
+                        <p class="product-spec">USB 3.0, Portable, Shock Resistant, 2-Year Warranty</p>
+                        <div class="product-price">₹3,499</div>
+                        <a href="https://wa.me/918754881677?text=I want to buy External Hard Drive 1TB - ₹3,499" class="btn btn-primary">Enquire on WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="cables">
+                    <div class="product-image">🔌</div>
+                    <div class="product-info">
+                        <h3 class="product-title">HDMI Cable 2m</h3>
+                        <p class="product-spec">4K Support, Gold Plated, High Speed Data Transfer</p>
+                        <div class="product-price">₹299</div>
+                        <a href="https://wa.me/918754881677?text=I want to buy HDMI Cable 2m - ₹299" class="btn btn-primary">Enquire on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section id="brands" class="section">
+        <div class="container">
+            <h2 class="section-title">Brands We Service</h2>
+            <p class="section-subtitle">Authorized service for all major laptop and mobile brands</p>
+            
+            <div class="brands-grid">
+                <div class="brand-logo">Apple</div>
+                <div class="brand-logo">Samsung</div>
+                <div class="brand-logo">Xiaomi</div>
+                <div class="brand-logo">OnePlus</div>
+                <div class="brand-logo">Realme</div>
+                <div class="brand-logo">Vivo</div>
+                <div class="brand-logo">Oppo</div>
+                <div class="brand-logo">Dell</div>
+                <div class="brand-logo">HP</div>
+                <div class="brand-logo">Lenovo</div>
+                <div class="brand-logo">Asus</div>
+                <div class="brand-logo">Acer</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About DP Mobile & Laptop Service</h2>
+            <p class="section-subtitle">Your trusted partner for all device repair needs</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Our Story</h3>
+                    <p class="mb-3">With over 8 years of experience in the electronics repair industry, DP Mobile & Laptop Service has established itself as the most trusted repair destination in the city. We started with a simple mission: to provide honest, reliable, and affordable repair services for laptops and mobile devices.</p>
+                    
+                    <h3>Why Choose Us?</h3>
+                    <div class="usp-card">
+                        <span class="usp-icon">👨‍🔧</span>
+                        <h4>Certified Technicians</h4>
+                        <p>Our team consists of certified professionals with extensive training in the latest repair techniques and technologies.</p>
+                    </div>
+                    
+                    <div class="usp-card">
+                        <span class="usp-icon">🔧</span>
+                        <h4>Advanced Equipment</h4>
+                        <p>We use state-of-the-art diagnostic tools and repair equipment to ensure precise and efficient service.</p>
+                    </div>
+                    
+                    <div class="usp-card">
+                        <span class="usp-icon">🏆</span>
+                        <h4>Quality Assurance</h4>
+                        <p>Every repair comes with our comprehensive warranty and quality guarantee for your peace of mind.</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Quick Stats</h3>
+                    <div class="service-card">
+                        <h4>📊 Our Achievements</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li class="mb-2">✅ 10,000+ Devices Repaired</li>
+                            <li class="mb-2">⭐ 4.8/5 Customer Rating</li>
+                            <li class="mb-2">🏆 8+ Years Experience</li>
+                            <li class="mb-2">🛡️ 90-Day Warranty</li>
+                            <li class="mb-2">⚡ Same-Day Service</li>
+                            <li class="mb-2">🔧 Certified Technicians</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <p class="section-subtitle">Real reviews from satisfied customers</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Excellent service! My laptop screen was replaced within 4 hours and it looks brand new. The pricing was very reasonable and the staff was very professional.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">R</div>
+                        <div class="author-info">
+                            <h4>Rahul Sharma</h4>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">My iPhone was completely dead after water damage. They recovered all my data and fixed the phone perfectly. Highly recommended for emergency repairs!</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">P</div>
+                        <div class="author-info">
+                            <h4>Priya Patel</h4>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Great experience with laptop motherboard repair. They diagnosed the issue quickly and provided a detailed explanation. Fair pricing and quality work.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h4>Amit Kumar</h4>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Bought a power bank and phone case from here. Genuine products at competitive prices. The staff helped me choose the right accessories for my device.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>Sneha Reddy</h4>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Professional chip-level repair service. My laptop was not turning on and they fixed it completely. The warranty they provide gives confidence in their work.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">V</div>
+                        <div class="author-info">
+                            <h4>Vikram Singh</h4>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Fast and reliable service. Got my Samsung phone screen replaced in just 2 hours. The quality is excellent and the price was very reasonable.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>Meera Joshi</h4>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Common questions about our services and policies</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What warranty do you provide on repairs?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We provide a comprehensive 90-day warranty on all repair services. This covers both parts and labor. If you experience any issues related to our repair within the warranty period, we'll fix it free of charge.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How long does a typical repair take?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Most common repairs like screen replacement and battery replacement take 2-4 hours. Complex repairs like motherboard issues may take 1-2 days. We provide same-day diagnosis for all devices.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you use original parts for repairs?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we prioritize using genuine original parts whenever available. For older devices where original parts are not available, we use high-quality compatible parts that meet our strict quality standards.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is my data safe during repairs?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. We follow strict data privacy protocols. Your personal data remains confidential and secure throughout the repair process. We recommend backing up important data before any repair as a precautionary measure.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you offer pickup and drop services?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we offer free pickup and drop services for bulk orders (5+ devices) and within a 10km radius. For individual repairs, pickup service is available at a nominal charge of ₹100.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What payment methods do you accept?
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We accept cash, all major credit/debit cards, UPI payments (Google Pay, PhonePe, Paytm), and bank transfers. Payment is required upon completion of the repair service.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Get in touch for repairs, quotes, or any questions</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Visit Our Store</h4>
+                            <p>No: 2/172, Shivam Shopping Arasur, Nambiyur Main Road<br>Arasur - 638454</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p><a href="tel:+918754881677" style="color: var(--primary); text-decoration: none;">+91 8754881677</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p><a href="mailto:dpmobilapservice03022025@gmail.com" style="color: var(--primary); text-decoration: none;">dpmobilapservice03022025@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <h4>Opening Hours</h4>
+                            <p>Monday - Sunday<br>9:30 AM - 9:00 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p><a href="https://wa.me/918754881677" style="color: var(--primary); text-decoration: none;">+91 8754881677</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Book a Repair</h3>
+                    <form id="repairForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="deviceType">Device Type *</label>
+                            <select id="deviceType" name="deviceType" required>
+                                <option value="">Select Device Type</option>
+                                <option value="laptop">Laptop</option>
+                                <option value="mobile">Mobile Phone</option>
+                                <option value="tablet">Tablet</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="brand">Brand</label>
+                            <input type="text" id="brand" name="brand" placeholder="e.g., Apple, Samsung, HP, Dell">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="model">Model</label>
+                            <input type="text" id="model" name="model" placeholder="e.g., iPhone 13, MacBook Pro, Galaxy S21">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="issue">Issue Description *</label>
+                            <textarea id="issue" name="issue" required placeholder="Please describe the problem with your device..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="preferredTime">Preferred Time</label>
+                            <select id="preferredTime" name="preferredTime">
+                                <option value="">Select Preferred Time</option>
+                                <option value="morning">Morning (9:30 AM - 12:00 PM)</option>
+                                <option value="afternoon">Afternoon (12:00 PM - 4:00 PM)</option>
+                                <option value="evening">Evening (4:00 PM - 9:00 PM)</option>
+                                <option value="anytime">Anytime</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            <span class="btn-text">Submit Repair Request</span>
+                            <span class="loading hidden"></span>
+                        </button>
+
+                        <div id="successMessage" class="success-message">
+                            ✅ Thank you! We'll contact you shortly to confirm your repair appointment.
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <div class="map-placeholder">
+                    🗺️ Interactive Map Coming Soon<br>
+                    <small>Visit us at: No: 2/172, Shivam Shopping Arasur, Nambiyur Main Road, Arasur - 638454</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DP Mobile & Laptop Service</h3>
+                    <p>Your trusted partner for laptop and mobile repairs with genuine accessories and professional service.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="https://wa.me/918754881677" class="social-link">💬</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Laptop Repair</a></li>
+                        <li><a href="#services">Mobile Repair</a></li>
+                        <li><a href="#services">Screen Replacement</a></li>
+                        <li><a href="#services">Battery Replacement</a></li>
+                        <li><a href="#services">Data Recovery</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>📍 No: 2/172, Shivam Shopping Arasur, Nambiyur Main Road, Arasur - 638454</li>
+                        <li>📞 <a href="tel:+918754881677">+91 8754881677</a></li>
+                        <li>✉️ <a href="mailto:dpmobilapservice03022025@gmail.com">dpmobilapservice03022025@gmail.com</a></li>
+                        <li>🕒 Mon-Sun: 9:30 AM - 9:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 DP Mobile & Laptop Service. All rights reserved. | Designed with ❤️ for better service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/918754881677?text=Hi! I need help with my device" class="whatsapp-float" title="Chat on WhatsApp">
+        💬
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth Scrolling and Active Navigation
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Close mobile menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Product Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const category = btn.getAttribute('data-category');
+
+                productCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Contact Form Submission
+        const repairForm = document.getElementById('repairForm');
+        const successMessage = document.getElementById('successMessage');
+
+        repairForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const submitBtn = repairForm.querySelector('button[type="submit"]');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const loading = submitBtn.querySelector('.loading');
+
+            // Get form data
+            const formData = new FormData(repairForm);
+            const name = formData.get('name');
+            const phone = formData.get('phone');
+            const deviceType = formData.get('deviceType');
+            const brand = formData.get('brand');
+            const model = formData.get('model');
+            const issue = formData.get('issue');
+            const preferredTime = formData.get('preferredTime');
+
+            // Show loading state
+            btnText.textContent = 'Opening WhatsApp...';
+            loading.classList.remove('hidden');
+            submitBtn.disabled = true;
+
+            // Create WhatsApp message
+            let whatsappMessage = `Hi! I would like to book a repair service.\n\n`;
+            whatsappMessage += `📋 *Repair Request Details:*\n`;
+            whatsappMessage += `👤 *Name:* ${name}\n`;
+            whatsappMessage += `📱 *Phone:* ${phone}\n`;
+            whatsappMessage += `📱 *Device Type:* ${deviceType}\n`;
+            
+            if (brand) {
+                whatsappMessage += `🏷️ *Brand:* ${brand}\n`;
+            }
+            
+            if (model) {
+                whatsappMessage += `📋 *Model:* ${model}\n`;
+            }
+            
+            whatsappMessage += `❗ *Issue:* ${issue}\n`;
+            
+            if (preferredTime) {
+                const timeLabels = {
+                    'morning': 'Morning (9:30 AM - 12:00 PM)',
+                    'afternoon': 'Afternoon (12:00 PM - 4:00 PM)',
+                    'evening': 'Evening (4:00 PM - 9:00 PM)',
+                    'anytime': 'Anytime'
+                };
+                whatsappMessage += `⏰ *Preferred Time:* ${timeLabels[preferredTime] || preferredTime}\n`;
+            }
+            
+            whatsappMessage += `\nPlease let me know the estimated cost and time required for this repair. Thank you!`;
+
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappURL = `https://wa.me/918754881677?text=${encodedMessage}`;
+
+            // Simulate form processing delay
+            setTimeout(() => {
+                // Open WhatsApp
+                window.open(whatsappURL, '_blank');
+
+                // Hide loading state
+                btnText.textContent = 'Submit Repair Request';
+                loading.classList.add('hidden');
+                submitBtn.disabled = false;
+
+                // Show success message
+                successMessage.innerHTML = '✅ WhatsApp opened! Please send the message to complete your repair request.';
+                successMessage.style.display = 'block';
+
+                // Reset form
+                repairForm.reset();
+
+                // Hide success message after 7 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 7000);
+            }, 1500);
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.service-card, .product-card, .testimonial-card, .usp-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(11, 18, 32, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(11, 18, 32, 0.95)';
+            }
+        });
+
+        // Lazy loading for product images (if using real images)
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        lazyImages.forEach(img => imageObserver.observe(img));
+
+        // Add smooth hover effects
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Performance optimization: Debounce scroll events
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+            scrollTimeout = setTimeout(() => {
+                // Scroll-dependent code here
+            }, 10);
+        });
+
+        // Add loading animation to page
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+            document.body.style.transition = 'opacity 0.5s ease-in';
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial active nav link
+            const homeLink = document.querySelector('a[href="#home"]');
+            if (homeLink) {
+                homeLink.classList.add('active');
+            }
+
+            // Add focus management for accessibility
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Tab') {
+                    document.body.classList.add('keyboard-navigation');
+                }
+            });
+
+            document.addEventListener('mousedown', () => {
+                document.body.classList.remove('keyboard-navigation');
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97031e3e64298eef',t:'MTc1NTM3MDIzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
